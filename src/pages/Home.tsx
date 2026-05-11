@@ -65,7 +65,7 @@ function Home() {
               sizes="(max-width: 640px) 76px, 96px"
               loading="eager"
               decoding="async"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </picture>
         </div>
