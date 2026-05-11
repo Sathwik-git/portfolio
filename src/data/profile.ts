@@ -1,7 +1,7 @@
-import profilePhoto from "../assets/profile.png";
+import profilePhoto from "../assets/profile-256.png";
 import wexaLogo from "../assets/wexa.svg";
 import zofLogo from "../assets/zof.svg";
-import kartavyaLogo from "../assets/kartavya.png";
+import kartavyaLogo from "../assets/kartavya-64.png";
 
 export const profile = {
   name: "Sathwik Bodakuntla",

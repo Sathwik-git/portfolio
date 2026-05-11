@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { profile } from "../data/profile";
 import VideoModal from "../components/VideoModal";
+import profilePhotoAvif128 from "../assets/profile-128.avif";
+import profilePhotoAvif256 from "../assets/profile-256.avif";
+import profilePhotoWebp128 from "../assets/profile-128.webp";
+import profilePhotoWebp256 from "../assets/profile-256.webp";
 
 const icons = {
   Email: (
@@ -42,7 +46,28 @@ function Home() {
     <>
       <header className="header">
         <div className="avatar">
-          <img src={profile.profilePhoto} alt="Sathwik Bodakuntla profile" />
+          <picture>
+            <source
+              type="image/avif"
+              srcSet={`${profilePhotoAvif128} 128w, ${profilePhotoAvif256} 256w`}
+              sizes="(max-width: 640px) 76px, 96px"
+            />
+            <source
+              type="image/webp"
+              srcSet={`${profilePhotoWebp128} 128w, ${profilePhotoWebp256} 256w`}
+              sizes="(max-width: 640px) 76px, 96px"
+            />
+            <img
+              src={profile.profilePhoto}
+              alt="Sathwik Bodakuntla profile"
+              width={96}
+              height={96}
+              sizes="(max-width: 640px) 76px, 96px"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
         <div className="header-text">
           <h1>{profile.name}</h1>
@@ -82,7 +107,14 @@ function Home() {
             <div
               className={`exp-logo ${item.logoTheme === "dark" ? "dark" : ""}`}
             >
-              <img src={item.logo} alt={`${item.company} logo`} />
+              <img
+                src={item.logo}
+                alt={`${item.company} logo`}
+                width={48}
+                height={48}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div>
               <div className="exp-org">{item.role}</div>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { profile } from "./data/profile";
 import Home from "./pages/Home";
@@ -29,6 +29,13 @@ function ScrollToHash() {
 function App() {
   const location = useLocation();
   const isBlogPage = location.pathname.startsWith("/blog");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname, location.hash]);
+
+  const handleNavClick = () => setIsMenuOpen(false);
 
   return (
     <div className="app">
@@ -37,13 +44,32 @@ function App() {
         <Link className="nav-name" to="/">
           {profile.name}
         </Link>
-        <ul className="nav-links">
+        <button
+          className={`nav-toggle ${isMenuOpen ? "is-open" : ""}`}
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          <span className="nav-toggle-line" />
+          <span className="nav-toggle-line" />
+          <span className="nav-toggle-line" />
+        </button>
+        <ul
+          id="primary-navigation"
+          className={`nav-links ${isMenuOpen ? "is-open" : ""}`}
+        >
           {profile.navLinks.map((link) => (
             <li key={link.label}>
               {link.href.startsWith("/") ? (
-                <Link to={link.href}>{link.label}</Link>
+                <Link to={link.href} onClick={handleNavClick}>
+                  {link.label}
+                </Link>
               ) : (
-                <a href={link.href}>{link.label}</a>
+                <a href={link.href} onClick={handleNavClick}>
+                  {link.label}
+                </a>
               )}
             </li>
           ))}
