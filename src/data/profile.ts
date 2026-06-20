@@ -41,6 +41,11 @@ export const profile = {
       mode: "On-site",
       logo: wexaLogo,
       logoTheme: "dark",
+      bullets: [
+        "Architected and shipped an AI voice interview platform on Next.js 14, LiveKit Agents (Node.js), and Kubernetes - an autonomous voice agent that replaces human interviewers across conversational video and three-panel coding modes.",
+        "Engineered a multi-agent voice workflow with typed handoffs, shared session state, and 6 LLM tools; hardened the pipeline with FallbackAdapter chains across STT, LLM, and TTS providers to survive single-vendor outages.",
+        "Integrated Judge0 sandboxed code execution across 12 languages with Zod-validated whitelisting and sliding-window rate limits; shipped MediaPipe (WASM) proctoring that flags 10+ violation types with a 0-100 suspicion score.",
+      ],
     },
     {
       role: "Software Engineer",
@@ -50,6 +55,10 @@ export const profile = {
       location: "San Francisco Bay Area",
       mode: "Remote",
       logo: zofLogo,
+      bullets: [
+        "Wrote agent orchestration logic in LangGraph, coordinating a multi-agent pipeline where a bug-finding agent detects regressions and hands findings to a report-generation agent with full traceability across services.",
+        "Built the bug-finding agent that inspects workflows, captures evidence of risky behavior, and flags regressions - paired with a pipeline that compiles structured, audit-ready reports per run.",
+      ],
     },
     {
       role: "Back End Developer",
@@ -59,6 +68,10 @@ export const profile = {
       location: "Bangalore",
       mode: "Remote",
       logo: kartavyaLogo,
+      bullets: [
+        "Built a RAG support chatbot over internal PDFs using HuggingFace embeddings, a Qdrant vector DB, and a custom chunking and indexing pipeline; wired retrieval into LLM generation for context-aware answers.",
+        "Built a centralized data-aggregation server driven by cron jobs to sync and manage application data across multiple in-house products.",
+      ],
     },
   ],
   projects: [
@@ -125,6 +138,39 @@ export const profile = {
     { category: "Infra", items: "Docker, AWS, CI/CD, Linux, Git" },
     { category: "Languages", items: "TypeScript, Python, JavaScript, Java, C" },
   ],
+  achievements: [
+    {
+      event: "HackArena National Hackathon",
+      detail: "Runner-up - 300 teams - IEEE, Guru Nanak Institutions",
+    },
+    {
+      event: "Hash it Out Hackathon",
+      detail: "Runner-up - 80 teams - SDC, SNIST",
+    },
+    {
+      event: "Student Tribe Codeathon",
+      detail: "Runner-up - Inter-college",
+    },
+  ],
+  leadership: [
+    {
+      role: "Technical Head - Cloud Community Club",
+      org: "SNIST",
+      dates: "Nov 2024 - Present",
+      bullets: [
+        "Conducted AI Hack Day 2025 in collaboration with IIIT Hyderabad, Viswam.AI, Swecha, and AI Days 2025.",
+        "Mentored teams at Project Schools, guiding peers through end-to-end industry-level projects from design to deployment.",
+        "Conducted workshops on web development, AI engineering, and cloud computing for 100+ students.",
+      ],
+    },
+  ],
+  education: {
+    school: "Sreenidhi Institute of Science and Technology",
+    degree: "Bachelor of Computer Science Engineering",
+    detail: "CGPA 8.5",
+    location: "Hyderabad",
+    dates: "Expected May 2026",
+  },
   contactLinks: [
     { label: "Email", href: "mailto:sathwikbodakuntla041@gmail.com" },
     { label: "GitHub", href: "https://github.com/Sathwik-git" },

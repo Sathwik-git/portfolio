@@ -249,8 +249,8 @@ h2 {
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: 16px;
-  margin-bottom: 20px;
-  align-items: center;
+  margin-bottom: 28px;
+  align-items: start;
 }
 
 .exp-item:last-child {
@@ -297,6 +297,48 @@ h2 {
   color: var(--subtle);
   line-height: 1.6;
   margin-top: 2px;
+}
+
+.exp-bullets {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.exp-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.exp-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 11px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--subtle);
+}
+
+.award-item {
+  margin-bottom: 16px;
+}
+
+.award-item:last-child {
+  margin-bottom: 0;
+}
+
+.award-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
 }
 
 .project-item {

@@ -37,6 +37,15 @@ const icons = {
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   ),
+  Resume: (
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+      />
+    </svg>
+  ),
 };
 
 function Home() {
@@ -93,9 +102,16 @@ function Home() {
                 {link.label}
               </a>
             ))}
-            <Link className="push" to="/blog">
-              Writing -&gt;
-            </Link>
+            <a
+              className="push"
+              href="/sathwik_bodakuntla_resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {icons.Resume}
+              Resume
+            </a>
+            <Link to="/blog">Writing -&gt;</Link>
           </div>
         </div>
       </header>
@@ -124,6 +140,13 @@ function Home() {
               <div className="exp-meta">
                 {item.dates} - {item.location} - {item.mode}
               </div>
+              {item.bullets ? (
+                <ul className="exp-bullets">
+                  {item.bullets.map((bullet, index) => (
+                    <li key={index}>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </div>
         ))}
@@ -164,6 +187,32 @@ function Home() {
         ))}
       </section>
 
+      <section id="achievements">
+        <h2>Achievements</h2>
+        {profile.achievements.map((item) => (
+          <div key={item.event} className="award-item">
+            <div className="award-title">{item.event}</div>
+            <div className="exp-meta">{item.detail}</div>
+          </div>
+        ))}
+      </section>
+
+      <section id="leadership">
+        <h2>Leadership</h2>
+        {profile.leadership.map((item) => (
+          <div key={item.role} className="lead-item">
+            <div className="exp-org">{item.role}</div>
+            <div className="exp-role">{item.org}</div>
+            <div className="exp-meta">{item.dates}</div>
+            <ul className="exp-bullets">
+              {item.bullets.map((bullet, index) => (
+                <li key={index}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
       <section id="skills">
         <h2>Technical Skills</h2>
         <table className="skills-table">
@@ -176,6 +225,19 @@ function Home() {
             ))}
           </tbody>
         </table>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div className="edu-item">
+          <div className="exp-org">{profile.education.school}</div>
+          <div className="exp-role">
+            {profile.education.degree} - {profile.education.detail}
+          </div>
+          <div className="exp-meta">
+            {profile.education.location} - {profile.education.dates}
+          </div>
+        </div>
       </section>
 
       <section id="contact">
